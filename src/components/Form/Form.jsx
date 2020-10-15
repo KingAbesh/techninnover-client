@@ -101,8 +101,6 @@ const Form = () => {
 
     const actualAge = getAge(birth_date);
 
-    setLoading(true);
-
     if (!(email.match(/([@])/) && email.match(/([.])/))) {
       addNotification("error", "Please enter a valid email", "pe-7s-info");
       return;
@@ -150,6 +148,8 @@ const Form = () => {
       );
     }
 
+    setLoading(true);
+    
     const response = await submitData(formData);
 
     if (response.status) {
